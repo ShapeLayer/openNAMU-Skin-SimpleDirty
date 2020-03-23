@@ -2,7 +2,7 @@ function materialize () {
     let buttons = document.getElementsByTagName('button')
     for(let i = 0; i<buttons.length; i++) {
         if (buttons[i].className == undefined || buttons[i].className == '') {
-            buttons[i].classList.add('mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect')
+            buttons[i].classList.add('mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button__margin')
         }
     }
 

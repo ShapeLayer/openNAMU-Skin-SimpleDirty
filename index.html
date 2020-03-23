@@ -29,65 +29,83 @@
     <!-- Head CDN End -->
 </head>
 <body>
-    <div class="mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--solid-black">
             <div class="mdl-layout__header-row">
-                <a class="mdl-layout-title text-deco__none logo-style" href="/">{{imp[1][4]|safe}}</a>
+                <!-- Title -->
+                <a class="mdl-layout-title text-deco__none" href="/">{{imp[1][4]|safe}}</a>
                 <div class="mdl-layout-spacer"></div>
-                <nav class="mdl-navigation">
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
                     <!-- Navigation Link Start -->
-                    <span class="mdl-navigation__link" id="menu-lower__recent"><i class="material-icons">update</i>{{'recent'|load_lang}}</span>
-                    <span class="mdl-navigation__link" id="menu-lower__apps"><i class="material-icons">apps</i>{{'other'|load_lang}}</span>
+                    <span class="mdl-navigation__link" id="menu-lower__recent"><i class="material-icons material-icons-align">update</i>{{'recent'|load_lang}}</span>
+                    <span class="mdl-navigation__link" id="menu-lower__apps"><i class="material-icons material-icons-align">apps</i>{{'other'|load_lang}}</span>
                     <a class="mdl-navigation__link" href="/user">
-                        <i class="material-icons">person</i>
+                        <i class="material-icons material-icons-align">person</i>
                         {{imp[2][5]}}
                         <!-- ::todo:: 뭐 알림기능 있나봄 나중에 만들어보자 -->
                     </a>
                     <!-- Navigation Link End -->
                     <!-- Elements Start -->
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__recent">
-                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">edit</i><a class="text-deco__none" href="/recent_changes">{{'edit'|load_lang}}</a></li>
-                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">chat</i><a class="text-deco__none" href="/recent_discuss">{{'discussion'|load_lang}}</a></li>
+                        <li class="mdl-menu__item"><i class="material-icons material-icons-align">edit</i><a class="text-deco__none" href="/recent_changes">{{'edit'|load_lang}}</a></li>
+                        <li class="mdl-menu__item"><i class="material-icons material-icons-align">chat</i><a class="text-deco__none" href="/recent_discuss">{{'discussion'|load_lang}}</a></li>
                     </ul>
 
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__apps">
-                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">shuffle</i><a class="text-deco__none" href="/random">{{'random'|load_lang}}</a></li>
-                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">build</i><a class="text-deco__none" href="/other">{{'tool'|load_lang}}</a></li>
-                        {% if imp[2][9] != '0' %}<li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">how_to_reg</i><a class="text-deco__none" href="/manager">{{'admin'|load_lang}}</a></li>{% endif %}
-                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">brush</i><a class="text-deco__none" href="/skin_st">{{'skin_setting'|load_lang}}</a></li>
+                        <li class="mdl-menu__item"><i class="material-icons material-icons-align">shuffle</i><a class="text-deco__none" href="/random">{{'random'|load_lang}}</a></li>
+                        <li class="mdl-menu__item"><i class="material-icons material-icons-align">build</i><a class="text-deco__none" href="/other">{{'tool'|load_lang}}</a></li>
+                        {% if imp[2][9] != '0' %}<li class="mdl-menu__item"><i class="material-icons material-icons-align">how_to_reg</i><a class="text-deco__none" href="/manager">{{'admin'|load_lang}}</a></li>{% endif %}
+                        <li class="mdl-menu__item"><i class="material-icons material-icons-align">brush</i><a class="text-deco__none" href="/skin_st">{{'skin_setting'|load_lang}}</a></li>
                     </ul>
                     <!-- Elements End -->
-                    <form action="/search" method="post" id="search" role="search">
-                        <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                                    mdl-textfield--floating-label mdl-textfield--align-right">
-                            <label class="mdl-button mdl-js-button mdl-button--icon"
-                                for="fixed-header-drawer-exp">
-                            <i class="material-icons">search</i>
-                            </label>
-                            <div class="mdl-textfield__expandable-holder">
-                            <input class="mdl-textfield__input" type="text" name="sample"
-                                    id="fixed-header-drawer-exp">
-                            </div>
-                        </div>
-                    </form>
                 </nav>
+                <!-- Search Start -->
+                <form action="/search" method="post" id="search" role="search" class="padding-0-24-px">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                                mdl-textfield--floating-label mdl-textfield--align-right">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons material-icons-align">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="search" name="search" id="fixed-header-drawer-exp" placeholder="{{'search'|load_lang}}" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+                <!-- Search End -->
             </div>
         </header>
-        <!--
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title text-deco__none logo-style mdl-navigation__title"></span>
+            <span class="mdl-layout-title">Title</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="/posts">게시물 목록</a>
-                <a class="mdl-navigation__link" href="#" categories>카테고리</a>
-                <a class="mdl-navigation__link" href="/tags">태그</a>
-                <a class="mdl-navigation__link" href="#" news>기사</a>
+                <span class="mdl-navigation__link" id="menu-lower__recent-drawer"><i class="material-icons material-icons-align">update</i>{{'recent'|load_lang}}</span>
+                <span class="mdl-navigation__link" id="menu-lower__apps-drawer"><i class="material-icons material-icons-align">apps</i>{{'other'|load_lang}}</span>
+                <a class="mdl-navigation__link" href="/user">
+                    <i class="material-icons material-icons-align">person</i>
+                    {{imp[2][5]}}
+                    <!-- ::todo:: 뭐 알림기능 있나봄 나중에 만들어보자 -->
+                </a>
+                <!-- Elements Start -->
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__recent-drawer">
+                    <li class="mdl-menu__item"><i class="material-icons material-icons-align">edit</i><a class="text-deco__none" href="/recent_changes">{{'edit'|load_lang}}</a></li>
+                    <li class="mdl-menu__item"><i class="material-icons material-icons-align">chat</i><a class="text-deco__none" href="/recent_discuss">{{'discussion'|load_lang}}</a></li>
+                </ul>
+
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__apps-drawer">
+                    <li class="mdl-menu__item"><i class="material-icons material-icons-align">shuffle</i><a class="text-deco__none" href="/random">{{'random'|load_lang}}</a></li>
+                    <li class="mdl-menu__item"><i class="material-icons material-icons-align">build</i><a class="text-deco__none" href="/other">{{'tool'|load_lang}}</a></li>
+                    {% if imp[2][9] != '0' %}<li class="mdl-menu__item"><i class="material-icons material-icons-align">how_to_reg</i><a class="text-deco__none" href="/manager">{{'admin'|load_lang}}</a></li>{% endif %}
+                    <li class="mdl-menu__item"><i class="material-icons material-icons-align">brush</i><a class="text-deco__none" href="/skin_st">{{'skin_setting'|load_lang}}</a></li>
+                </ul>
+                <!-- Elements End -->
+                
             </nav>
-        </div>-->
+        </div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <div class="page-container">
                     <!-- Body Start -->
+                    <div id="body-start"></div>
 
                     <!-- Page Hero Start -->
                     <h2 class="hero-text">{{imp[0]}}</h2>
@@ -128,7 +146,9 @@
                     <div class="content-main">{{data|safe}}</div>
                     <!-- Body Content End -->
 
+                    <div id="body-end"></div>
                 </div><!-- Body End -->
+                <!-- Footer Start -->
                 <footer class="mdl-mini-footer">
                     <div class="mdl-mini-footer__left-section">
                         <div class="mdl-logo logo-style">{{imp[1][4]|safe}}</div>
@@ -138,6 +158,19 @@
                         </ul>
                     </div>
                 </footer>
+                <!-- Footer End -->
+                <div class="sd-nav__scroll">
+                    <a href="#body-start" class="button-deco__none button-deco__none-dark">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </button>
+                    </a>
+                    <a href="#body-end" class="button-deco__none button-deco__none-dark">
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                        <i class="material-icons">keyboard_arrow_down</i>
+                    </button>
+                    </a>
+                </div>
             </div>
         </main>
     </div>
