@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Head Jinja Start -->
+    {% if imp[3][0] != 0 %}
+        <title>{{imp[0]}}{{imp[3][0]}} - {{imp[1][0]}}</title>
+    {% else %}
+        <title>{{imp[0]}} - {{imp[1][0]}}</title>
+    {% endif %}
+    {{imp[3][3]|safe}}
+    <link rel="shortcut icon" href="/views/main_css/file/favicon.ico?ver=1">
+    {{imp[1][5]|safe}}
+    {{imp[2][3]|safe}}
+    {% if imp[3][0] != 0 %}
+        <meta name="title" content="{{imp[0]}}{{imp[3][0]}} - {{imp[1][0]}}">
+    {% else %}
+        <meta name="title" content="{{imp[0]}} - {{imp[1][0]}}">
+    {% endif %}
+    <meta name="keywords" content="{{imp[0]}}">
+    <meta name="description" content="{{data|cut_100}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Head Jinja End -->
+    <!-- Head CDN Start -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="/views/simpledirty/css/style.css">
+    <!-- Head CDN End -->
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <a class="mdl-layout-title text-deco__none logo-style" href="/">{{imp[1][4]|safe}}</a>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation">
+                    <!-- Navigation Link Start -->
+                    <span class="mdl-navigation__link" id="menu-lower__recent"><i class="material-icons">update</i>{{'recent'|load_lang}}</span>
+                    <span class="mdl-navigation__link" id="menu-lower__apps"><i class="material-icons">apps</i>{{'other'|load_lang}}</span>
+                    <a class="mdl-navigation__link" href="/user">
+                        <i class="material-icons">person</i>
+                        {{imp[2][5]}}
+                        <!-- ::todo:: 뭐 알림기능 있나봄 나중에 만들어보자 -->
+                    </a>
+                    <!-- Navigation Link End -->
+                    <!-- Elements Start -->
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__recent">
+                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">edit</i><a class="text-deco__none" href="/recent_changes">{{'edit'|load_lang}}</a></li>
+                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">chat</i><a class="text-deco__none" href="/recent_discuss">{{'discussion'|load_lang}}</a></li>
+                    </ul>
+
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__apps">
+                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">shuffle</i><a class="text-deco__none" href="/random">{{'random'|load_lang}}</a></li>
+                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">build</i><a class="text-deco__none" href="/other">{{'tool'|load_lang}}</a></li>
+                        {% if imp[2][9] != '0' %}<li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">how_to_reg</i><a class="text-deco__none" href="/manager">{{'admin'|load_lang}}</a></li>{% endif %}
+                        <li class="mdl-menu__item mdl-menu__item-edit"><i class="material-icons">brush</i><a class="text-deco__none" href="/skin_st">{{'skin_setting'|load_lang}}</a></li>
+                    </ul>
+                    <!-- Elements End -->
+                    <form action="/search" method="post" id="search" role="search">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                                    mdl-textfield--floating-label mdl-textfield--align-right">
+                            <label class="mdl-button mdl-js-button mdl-button--icon"
+                                for="fixed-header-drawer-exp">
+                            <i class="material-icons">search</i>
+                            </label>
+                            <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" name="sample"
+                                    id="fixed-header-drawer-exp">
+                            </div>
+                        </div>
+                    </form>
+                </nav>
+            </div>
+        </header>
+        <!--
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title text-deco__none logo-style mdl-navigation__title"></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/posts">게시물 목록</a>
+                <a class="mdl-navigation__link" href="#" categories>카테고리</a>
+                <a class="mdl-navigation__link" href="/tags">태그</a>
+                <a class="mdl-navigation__link" href="#" news>기사</a>
+            </nav>
+        </div>-->
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <div class="page-container">
+                    <!-- Body Start -->
+
+                    <!-- Page Hero Start -->
+                    <h2 class="hero-text">{{imp[0]}}</h2>
+                    <!-- ::todo:: <sub>{{imp[3][0]}}</sub> 뭘까 -->
+                    <!-- Page Hero End -->
+
+                    <!-- Page Submenu Start -->
+                    <div class="post-submenu">
+                        <span class="latest-edited">
+                            <!--<i class="material-icons">spellcheck</i>-->
+                            {% if imp[3][1] != 0 %}
+                                {{'last_edit_time'|load_lang}} : {{imp[3][1]}}
+                            {% endif %}
+                        </span>
+                    </div>
+                    <!-- Page Submenu End -->
+
+                    <!-- Tools Start -->
+                    {% if menu != 0 %}
+                        <div class="tool">
+                            {% for sub_d in menu %}
+                                <div class="tool_cel">
+                                    {% if sub_d|length > 2 and sub_d[2] == 1 %}
+                                        <a class="menu-item" href="/{{sub_d[0]}}" id="topic_color">{{sub_d[1]}}</a>
+                                    {% else %}
+                                        <a class="menu-item" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
+                                    {% endif %}
+                                </div>
+                                {% if menu[loop.index] %}
+                                    |
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <!-- Tools End -->
+
+                    <!-- Body Content Start -->
+                    <div class="content-main">{{data|safe}}</div>
+                    <!-- Body Content End -->
+
+                </div><!-- Body End -->
+                <footer class="mdl-mini-footer">
+                    <div class="mdl-mini-footer__left-section">
+                        <div class="mdl-logo logo-style">{{imp[1][4]|safe}}</div>
+                        <ul class="mdl-mini-footer__link-list">
+                            <li><span>{{imp[1][1]|safe}}</span></li>
+                            <li><a href="https://github.com/2du/openNAMU"><img id="b_logo" src="/views/simpledirty/img/s_logo_white.png"></a></li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <script src="/views/simpledirty/js/index.js"></script>
+</body>
+</html>
