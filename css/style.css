@@ -131,4 +131,7 @@ a.link_finder#not_thing {
     margin-right: 15px;
     transition: ease .1s;
 }
+#toron td {
+    text-align: left;
+}
 /* ============= */
