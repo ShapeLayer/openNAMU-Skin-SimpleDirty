@@ -13,5 +13,8 @@ MDL(Material Design Lite)을 기반으로 만들어졌습니다.
 ## 이슈 처리
 버그 발생 시 [이슈 트래커](https://github.com/kpjhg0124/openNAMU-Skin-SimpleDirty/issues)에 제보해주시면 감사하겠습니다.  
 
+## 설치
+[아카이브](https://github.com/kpjhg0124/openNAMU-Skin-SimpleDirty/archive/master.zip)를 받아 오픈나무 파일의 /views 폴더 하위에 simpledirty 폴더를 넣습니다.
+
 ## 라이선스
 이 프로젝트는 BSD 허가서(BSD 3-Clause License)를 채택하고 있습니다. 자세한 내용은 [LICENSE](/LICENSE) 문서를 참조하세요.  
