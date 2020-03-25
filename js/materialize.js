@@ -13,7 +13,7 @@ function materialize () {
 
     let inputs = document.getElementsByTagName('input')
     for (let i = 0; i < inputs.length; i++) {
-        if ((inputs[i].className == undefined || inputs[i].className == '') && (inputs[i].type == 'text' || inputs[i].type == 'number' || inputs[i].type == 'password') && (inputs[i].style.display !== 'none')) {
+        if ((inputs[i].className == undefined || inputs[i].className == '') && (inputs[i].type == 'text' || inputs[i].type == 'number' || inputs[i].type == 'password') && (inputs[i].style.display !== 'none') && (inputs[i].getAttribute('materialize') !== 'false')) {
             if (inputs[i].id == undefined || inputs[i].id == '') {
                 inputs[i].id = 'input' + i
             }

@@ -1,6 +1,8 @@
 window.onload = function () {
     if (window.location.pathname === '/skin_set') {
         loadSkinSettingsPage()
+    } else if ((window.location.pathname.match(/(\/edit\/).*?/)) || (window.location.pathname.match(/(\/topic\/).*?/)) || (window.location.pathname.match(/(\/thread\/).*?/))) {
+        bindingEvents(document.getElementById('content'))
     }
     loadSkinSettings()
     materialize()

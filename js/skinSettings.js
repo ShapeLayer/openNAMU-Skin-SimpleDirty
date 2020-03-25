@@ -126,7 +126,7 @@ function loadSkinSettingsPage () {
         <div class="colorbox" id="colorMDLLinkInner1__cb" style="background-color: ` + s['colorMDLLinkInner1'] + `;"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text" id="colorMDLLinkInner1__input" onchange="changeTextfieldColor('colorMDLLinkInner1__cb', this.value)" value="` + s['colorMDLLinkInner1'] + `" disabled>
-            <label class="mdl-textfield__label" for="colorMDLLinkInner1__input" id="colorMDLLinkInner1__label">내부 링크(문서 존재)</label>
+            <label class="mdl-textfield__label" for="colorMDLLinkInner1__input" id="colorMDLLinkInner1__label">내부 링크(문서 있음)</label>
         </div>
     </div>
 
@@ -163,6 +163,18 @@ function loadSkinSettingsPage () {
         </div>
     </div>
 
+    <div style="margin-bottom: 15px;"> <!-- 저장 코드 작성 필요 -->
+        <p>openNAMU 로고</p>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="colorMDLFooterOpenNAMU-1">
+            <input type="radio" id="colorMDLFooterOpenNAMU-1" class="mdl-radio__button" name="colorMDLFooterOpenNAMU" value="white" checked>
+            <span class="mdl-radio__label">흰색 글자 openNAMU 로고</span>
+        </label>
+        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="colorMDLFooterOpenNAMU-2">
+            <input type="radio" id="colorMDLFooterOpenNAMU-2" class="mdl-radio__button" name="colorMDLFooterOpenNAMU" value="black">
+            <span class="mdl-radio__label">검은색 글자 openNAMU 로고</span>
+        </label>
+    </div>
+
     <div>
         <div class="colorbox" id="colorMDLNav__cb" style="background-color: ` + s['colorMDLNav'] + `;"></div>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -183,6 +195,7 @@ function loadSkinSettingsPage () {
     <div><button onclick="saveSkinSettings()">저장</button><button onclick="resetSkinSettings()">기본값으로 변경</button></div>
     <hr>
     <h2>실험실</h2>
+    <hr>
     <h2>스킨 정보</h2>
     <h4>SimpleDirty</h4>
     <p>Copyright (c) 2020, Park, Jonghyeon.</p>

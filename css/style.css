@@ -56,12 +56,14 @@ textarea:hover, textarea:focus{
     box-shadow: 0 0 0 2px rgba(63, 81, 181, 1) inset;
     transition: .5s ease;
 }
+textarea.textarea-drag {
+    box-shadow: 0 0 0 7px rgba(63, 81, 181, 0.5) inset;
+}
 /* ============= */
 
 
 
 /* MDL Elements */
-
 .mdl-layout {
     position: relative;
 }
@@ -87,6 +89,9 @@ textarea:hover, textarea:focus{
 .mdl-data-table td {
     border-right: none;
     border-left: none;
+}
+.mdl-menu__item a.text-deco__none {
+    display: block;
 }
 /* ============= */
 

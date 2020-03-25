@@ -41,23 +41,24 @@
                     <!-- Navigation Link Start -->
                     <span class="mdl-navigation__link colorMDLMenuColor" id="menu-lower__recent"><i class="material-icons material-icons-align">update</i>{{'recent'|load_lang}}</span>
                     <span class="mdl-navigation__link colorMDLMenuColor" id="menu-lower__apps"><i class="material-icons material-icons-align">apps</i>{{'other'|load_lang}}</span>
-                    <a class="mdl-navigation__link colorMDLMenuColor" href="/user">
-                        <i class="material-icons material-icons-align">person</i>
-                        {{imp[2][5]}}
-                        <!-- ::todo:: 뭐 알림기능 있나봄 나중에 만들어보자 -->
-                    </a>
+                    <span class="mdl-navigation__link colorMDLMenuColor" id="menu-lower__user"><i class="material-icons material-icons-align">person</i>{{imp[2][5]}}</span>
+                    <!-- ::todo:: 뭐 알림기능 있나봄 나중에 만들어보자 -->
                     <!-- Navigation Link End -->
                     <!-- Elements Start -->
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__recent">
                         <li class="mdl-menu__item"><a class="text-deco__none" href="/recent_changes"><i class="material-icons material-icons-align">edit</i>{{'edit'|load_lang}}</a></li>
                         <li class="mdl-menu__item"><a class="text-deco__none" href="/recent_discuss"><i class="material-icons material-icons-align">chat</i>{{'discussion'|load_lang}}</a></li>
                     </ul>
-
                     <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__apps">
                         <li class="mdl-menu__item"><a class="text-deco__none" href="/random"><i class="material-icons material-icons-align">shuffle</i>{{'random'|load_lang}}</a></li>
                         <li class="mdl-menu__item"><a class="text-deco__none" href="/other"><i class="material-icons material-icons-align">build</i>{{'tool'|load_lang}}</a></li>
                         {% if imp[2][9] != '0' %}<li class="mdl-menu__item"><a class="text-deco__none" href="/manager"><i class="material-icons material-icons-align">how_to_reg</i>{{'admin'|load_lang}}</a></li>{% endif %}
                         <li class="mdl-menu__item"><a class="text-deco__none" href="/skin_set"><i class="material-icons material-icons-align">brush</i>{{'skin_setting'|load_lang}}</a></li>
+                    </ul>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__user">
+                        {% if imp[2][2] == 0 %}<li class="mdl-menu__item"><a class="text-deco__none" href="/login">{{'login'|load_lang}}</a></li>{% endif %}
+                        {% if imp[2][2] == 1 %}<li class="mdl-menu__item"><a class="text-deco__none" href="/logout">{{'logout'|load_lang}}</a></li>{% endif %}
+                        <li class="mdl-menu__item"><a class="text-deco__none" href="/user"><i class="material-icons material-icons-align">people_alt</i>{{'user_tool'|load_lang}}</a></li>
                     </ul>
                     <!-- Elements End -->
                 </nav>
@@ -82,22 +83,22 @@
             <nav class="mdl-navigation">
                 <span class="mdl-navigation__link" id="menu-lower__recent-drawer"><i class="material-icons material-icons-align">update</i>{{'recent'|load_lang}}</span>
                 <span class="mdl-navigation__link" id="menu-lower__apps-drawer"><i class="material-icons material-icons-align">apps</i>{{'other'|load_lang}}</span>
-                <a class="mdl-navigation__link" href="/user">
-                    <i class="material-icons material-icons-align">person</i>
-                    {{imp[2][5]}}
-                    <!-- ::todo:: 뭐 알림기능 있나봄 나중에 만들어보자 -->
-                </a>
+                <span class="mdl-navigation__link" id="menu-lower__user-drawer"><i class="material-icons material-icons-align">person</i>{{imp[2][5]}}</span>
                 <!-- Elements Start -->
                 <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__recent-drawer">
                     <li class="mdl-menu__item"><a class="text-deco__none" href="/recent_changes"><i class="material-icons material-icons-align">edit</i>{{'edit'|load_lang}}</a></li>
                     <li class="mdl-menu__item"><a class="text-deco__none" href="/recent_discuss"><i class="material-icons material-icons-align">chat</i>{{'discussion'|load_lang}}</a></li>
                 </ul>
-
                 <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__apps-drawer">
                     <li class="mdl-menu__item"><a class="text-deco__none" href="/random"><i class="material-icons material-icons-align">shuffle</i>{{'random'|load_lang}}</a></li>
                     <li class="mdl-menu__item"><a class="text-deco__none" href="/other"><i class="material-icons material-icons-align">build</i>{{'tool'|load_lang}}</a></li>
                     {% if imp[2][9] != '0' %}<li class="mdl-menu__item"><a class="text-deco__none" href="/manager"><i class="material-icons material-icons-align">how_to_reg</i>{{'admin'|load_lang}}</a></li>{% endif %}
                     <li class="mdl-menu__item"><a class="text-deco__none" href="/skin_set"><i class="material-icons material-icons-align">brush</i>{{'skin_setting'|load_lang}}</a></li>
+                </ul>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="menu-lower__user-drawer">
+                    {% if imp[2][2] == 0 %}<li class="mdl-menu__item"><a class="text-deco__none" href="/login">{{'login'|load_lang}}</a></li>{% endif %}
+                    {% if imp[2][2] == 1 %}<li class="mdl-menu__item"><a class="text-deco__none" href="/logout">{{'logout'|load_lang}}</a></li>{% endif %}
+                    <li class="mdl-menu__item"><a class="text-deco__none" href="/user"><i class="material-icons material-icons-align">people_alt</i>{{'user_tool'|load_lang}}</a></li>
                 </ul>
                 <!-- Elements End -->
                 
@@ -148,6 +149,13 @@
                     <div class="content-main">{{data|safe}}</div>
                     <!-- Body Content End -->
 
+                    <!-- File Uploader Form Start -->
+                    <form method="post" enctype="multipart/form-data" accept-charset="utf8" id="file-uploader-form" style="display: none;">
+                        <input name="f_data[]" type="file" id="file-uploader-form__file" multiple="multiple" style="display: none;" materialize="false">
+                        <input name="f_name" type="text" id="file-uploader-form__name" style="display: none;" materialize="false">
+                    </form>
+                    <!-- File Uploader Form End -->
+
                     <!-- Snackbar Start -->
                     <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
                         <div class="mdl-snackbar__text"></div>
@@ -185,8 +193,9 @@
             </div>
         </main>
     </div>
-    <script src="/views/simpledirty/js/materialize.js"></script>
     <script src="/views/simpledirty/js/snackBar.js"></script>
+    <script src="/views/simpledirty/js/fileUploader.js"></script>
+    <script src="/views/simpledirty/js/materialize.js"></script>
     <script src="/views/simpledirty/js/skinSettings.js"></script>
     <script src="/views/simpledirty/js/index.js"></script>
 </body>
