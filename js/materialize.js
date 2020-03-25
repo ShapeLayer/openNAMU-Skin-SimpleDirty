@@ -13,7 +13,7 @@ function materialize () {
 
     let inputs = document.getElementsByTagName('input')
     for (let i = 0; i < inputs.length; i++) {
-        if ((inputs[i].className == undefined || inputs[i].className == '') && (inputs[i].type == 'text' || inputs[i].type == 'number' || inputs[i].type == 'password')) {
+        if ((inputs[i].className == undefined || inputs[i].className == '') && (inputs[i].type == 'text' || inputs[i].type == 'number' || inputs[i].type == 'password') && (inputs[i].style.display !== 'none')) {
             if (inputs[i].id == undefined || inputs[i].id == '') {
                 inputs[i].id = 'input' + i
             }
@@ -38,39 +38,6 @@ function materialize () {
                 <label class="mdl-textfield__label" for="` + inputs[i].id + `"></label>
             </div>
             `
-        }
-    }
-
-    let textareas = document.getElementsByTagName('textarea')
-    for (let i = 0; i < textareas.length; i++) {
-        if ((textareas[i].className == undefined || textareas[i].className == '')) {
-            if (textareas[i].id == undefined || textareas[i].id == '') {
-                textareas[i].id = 'textarea' + i
-            }
-
-            let attributes = ''
-            let attributesKeys = []
-            let value = textareas[i].value
-            for (let j = 0; j < textareas[i].attributes.length; j++) {
-                attributesKeys.push(textareas[i].attributes[j].name)
-                if (textareas[i].attributes[j].name === 'class') {
-                    attributes = attributes + ' class="mdl-textfield__input ' + textareas[i].attributes[j].value + '"'
-                } else {
-                    attributes = attributes + ' ' + textareas[i].attributes[j].name + '="' + textareas[i].attributes[j].value + '"'
-                }
-            }
-
-            if (attributesKeys.indexOf('class') < 0) {
-                attributes = attributes + ' class="mdl-textfield__input"'
-            }
-
-            textareas[i].outerHTML = `
-            <div class="mdl-textfield mdl-js-textfield">
-                <textarea ` + attributes + `></textarea>
-                <label class="mdl-textfield__label" for="` + textareas[i].id + `"></label>
-            </div>
-            `
-            document.getElementById(textareas[i].id).value = value
         }
     }
 }

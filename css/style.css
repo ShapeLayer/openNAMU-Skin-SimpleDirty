@@ -45,6 +45,17 @@ a.link_finder#not_thing {
     color: #ff9d9c;
 }
 
+textarea {
+    padding: 10px;
+    margin: 5px;
+    transition: .5s ease;
+    outline: none;
+    border-radius: 4px;
+}
+textarea:hover, textarea:focus{
+    box-shadow: 0 0 0 2px rgba(63, 81, 181, 1) inset;
+    transition: .5s ease;
+}
 /* ============= */
 
 

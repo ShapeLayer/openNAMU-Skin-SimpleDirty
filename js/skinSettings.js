@@ -12,6 +12,11 @@ const defaultSkinSettings = {
     colorMDLNav: '#ff4081',
     colorMDLNavColor: '#ffffff'
 }
+const skinInfo = {
+    release: 1,
+    dev: true,
+    target: 'v3.1.7-master-20 (commit 8e32948)'
+}
 
 function changeTextfieldColor (targetId, inputValue) {
     document.getElementById(targetId).style.backgroundColor = inputValue
@@ -178,5 +183,13 @@ function loadSkinSettingsPage () {
     <div><button onclick="saveSkinSettings()">저장</button><button onclick="resetSkinSettings()">기본값으로 변경</button></div>
     <hr>
     <h2>실험실</h2>
+    <h2>스킨 정보</h2>
+    <h4>SimpleDirty</h4>
+    <p>Copyright (c) 2020, Park, Jonghyeon.</p>
+    <br>
+    <p>버전: ` + skinInfo['release'] + ` ` + (skinInfo['dev'] ? '(개발 버전)' : '') + `</p>
+    <p>대응 오픈나무 버전: ` + skinInfo['target'] + `</p>
+    <br>
+    <p>SimpleDirty는 대응 오픈나무 버전에서 작성되었거나 수정되었으며, 해당 버전에서의 동작을 확인했습니다. 오픈나무의 이전 버전 호환성에 따라 이전 버전의 오픈나무를 지원합니다.</p>
     `
 }
