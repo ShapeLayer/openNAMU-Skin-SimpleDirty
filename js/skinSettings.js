@@ -55,7 +55,6 @@ function loadSkinSettings () {
     loadSkinSettingsElements('colorMDLNav', 'background-color: ' + getCookie('colorMDLNav') + ';')
     loadSkinSettingsElements('colorMDLNavColor', 'color: ' + getCookie('colorMDLNavColor') + ';')
     let aTags = document.getElementsByTagName('a')
-    console.log(aTags)
     for (let i = 0; i < aTags.length; i++) {
         if (aTags[i].id === 'out_link') {
             aTags[i].style = 'color: ' + getCookie('colorMDLLinkOuter') + ';'

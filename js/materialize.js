@@ -50,7 +50,8 @@ function materialize () {
 
             let attributes = ''
             let attributesKeys = []
-            for(let j = 0; j < textareas[i].attributes.length; j++) {
+            let value = textareas[i].value
+            for (let j = 0; j < textareas[i].attributes.length; j++) {
                 attributesKeys.push(textareas[i].attributes[j].name)
                 if (textareas[i].attributes[j].name === 'class') {
                     attributes = attributes + ' class="mdl-textfield__input ' + textareas[i].attributes[j].value + '"'
@@ -58,16 +59,18 @@ function materialize () {
                     attributes = attributes + ' ' + textareas[i].attributes[j].name + '="' + textareas[i].attributes[j].value + '"'
                 }
             }
+
             if (attributesKeys.indexOf('class') < 0) {
                 attributes = attributes + ' class="mdl-textfield__input"'
             }
 
             textareas[i].outerHTML = `
             <div class="mdl-textfield mdl-js-textfield">
-                <textarea class="mdl-textfield__input" ` + attributes + `></textarea>
+                <textarea ` + attributes + `></textarea>
                 <label class="mdl-textfield__label" for="` + textareas[i].id + `"></label>
             </div>
             `
+            document.getElementById(textareas[i].id).value = value
         }
     }
 }
