@@ -1,25 +1,25 @@
 function materialize () {
     let buttons = document.getElementsByTagName('button')
-    for(let i = 0; i<buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
         if (buttons[i].className == undefined || buttons[i].className == '') {
             buttons[i].classList.add('mdl-button', 'mdl-js-button', 'mdl-button--raised', 'mdl-js-ripple-effect', 'mdl-button__margin')
         }
     }
 
     let tables = document.getElementsByTagName('table')
-    for(let i = 0; i<tables.length; i++) {
+    for (let i = 0; i < tables.length; i++) {
         tables[i].classList.add('mdl-data-table', 'mdl-js-data-table', 'mdl-shadow--2dp')
     }
 
     let inputs = document.getElementsByTagName('input')
-    for(let i = 0; i<inputs.length; i++) {
+    for (let i = 0; i < inputs.length; i++) {
         if ((inputs[i].className == undefined || inputs[i].className == '') && (inputs[i].type == 'text' || inputs[i].type == 'number' || inputs[i].type == 'password')) {
             if (inputs[i].id == undefined || inputs[i].id == '') {
                 inputs[i].id = 'input' + i
             }
 
             let attributes = ''
-            for(let j = 0; j<inputs[i].attributes.length; j++) {
+            for(let j = 0; j < inputs[i].attributes.length; j++) {
                 if (inputs[i].attributes[j].name === 'class') {
                     attributes = attributes + 'class="mdl-textfield__input ' + inputs[i].attributes[j].value + '"'
                 } else {
